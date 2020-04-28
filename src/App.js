@@ -3,10 +3,11 @@ import './App.css';
 import logo from './assets/images/us_flag_small.png';
 import logo1 from './assets/images/icon-dot-gov.svg';
 import logo2 from './assets/images/circle-124.png';
+import logo3 from './assets/images/icon-https.svg';
 
 function App() {
   return <body data-gr-c-s-loaded="true">
-  <section className="usa-banner" aria-label="Official government website">
+  <section className="site-banner usa-banner" aria-label="Official government website">
     <div className="usa-accordion">
       <header className="usa-banner__header">
         <div className="usa-banner__inner">
@@ -36,8 +37,7 @@ function App() {
               </div>
           </div>
           <div className="usa-banner__guidance tablet:grid-col-6">
-            <img className="usa-banner__icon usa-media-block__img"
-                 src="assets/images/icon-https.svg" alt="Https"/>
+            <img className="usa-banner__icon usa-media-block__img" src={logo3} alt="Https"/>
               <div className="usa-media-block__body">
                 <p>
                   <strong>The site is secure.</strong>
@@ -51,23 +51,56 @@ function App() {
       </div>
     </div>
   </section>
-
-
   <div className="usa-overlay"></div>
-  <header className="usa-header usa-header--extended">
-    <div className="usa-navbar">
-      <div className="usa-logo" id="extended-logo">
-        <em className="usa-logo__text"><a href="https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.app.cloud.gov/"
-                                          title="Home" aria-label="Home">Project title</a></em>
+
+  <header className="usa-header site-header site-header-dark" role="banner">
+    <div className="usa-navbar site-header-navbar">
+      <div className="usa-logo site-logo" id="logo">
+        <em className="usa-logo__text">
+          <a className="margin-right-05" href="/" title="Home" aria-label="U.S. Web Design System (USWDS) home">
+            <span className="site-title">U.S. Web Design System (USWDS)</span>
+          </a>
+        </em>
       </div>
       <button className="usa-menu-btn">Menu</button>
+      <div className="navbar--container">
+        <form id="search_form"
+              className="navbar__search usa-search usa-search--small desktop:margin-right-2 display-none desktop:display-inline-block float-none text-middle"
+              action="https://search.usa.gov/search" accept-charset="UTF-8" method="get">
+          <input name="utf8" type="hidden" value="✓"/>
+            <input type="hidden" name="affiliate" id="affiliate" value="uswds"/>
+              <div role="search">
+                <label className="usa-sr-only" htmlFor="query">Search</label>
+                <input id="query" className="usa-input usagov-search-autocomplete" name="query" type="search"
+                       autoComplete="off"/>
+                  <button className="usa-button" type="submit" name="commit">
+                    <span className="usa-sr-only">Search</span>
+                  </button>
+              </div>
+        </form>
+        <div className="buttons">
+          <a className="usa-button site-button-outline-secondary site-button-standards margin-x-0 desktop:margin-right-1 padding-x-05 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+             href="/website-standards/"
+             onClick="ga('send', 'event', 'Read website standards', 'Clicked Read website standards from inside site');">
+            Read website standards
+          </a>
+          <a className="usa-button site-button-outline-secondary site-button-download margin-x-0 desktop:margin-right-1 desktop:padding-left-1 desktop:padding-right-05 desktop-lg:padding-left-205 desktop-lg:padding-right-2 font-lang-sm"
+             href="/download/"
+             onClick="ga('send', 'event', 'Downloaded code and design files', 'Clicked Download code and design files from inside site');">
+            Download <span className="version desktop:display-none desktop-lg:display-inline">v2.6.0</span>
+          </a>
+        </div>
+
+
+      </div>
     </div>
-    <nav aria-label="Primary navigation" className="usa-nav">
+
+    <nav className="site-nav-secondary sticky">
       <div className="usa-nav__inner">
         <button className="usa-nav__close"><img src="assets/images/close.svg" alt="close"/>
         </button>
         <ul className="usa-nav__primary usa-accordion">
-          <li className="usa-nav__primary-item">
+  {/*        <li className="usa-nav__primary-item">
             <button className="usa-accordion__button usa-nav__link  usa-current" aria-expanded="false"
                     aria-controls="extended-nav-section-one"><span>Current section</span></button>
             <ul id="extended-nav-section-one" className="usa-nav__submenu" hidden="">
@@ -84,50 +117,20 @@ function App() {
                   link</a>
               </li>
             </ul>
+          </li>*/}
+          <li className="usa-nav__primary-item">
+            <a className="usa-nav__link" href="javascript:void(0)"><span>How to use USWDS</span></a>
           </li>
           <li className="usa-nav__primary-item">
-            <button className="usa-accordion__button usa-nav__link" aria-expanded="false"
-                    aria-controls="extended-nav-section-two"><span>Section</span></button>
-            <ul id="extended-nav-section-two" className="usa-nav__submenu" hidden="">
-              <li className="usa-nav__submenu-item">
-                <a href="https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.app.cloud.gov/preview/uswds/uswds/release-2.6.0/components/preview/layout--landing.html#">Navigation
-                  link</a>
-              </li>
-              <li className="usa-nav__submenu-item">
-                <a href="https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.app.cloud.gov/preview/uswds/uswds/release-2.6.0/components/preview/layout--landing.html#">Navigation
-                  link</a>
-              </li>
-              <li className="usa-nav__submenu-item">
-                <a href="https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.app.cloud.gov/preview/uswds/uswds/release-2.6.0/components/preview/layout--landing.html#">Navigation
-                  link</a>
-              </li>
-            </ul>
+            <a className="usa-nav__link" href="javascript:void(0)"><span>About</span></a>
           </li>
           <li className="usa-nav__primary-item">
-            <a className="usa-nav__link" href="javascript:void(0)"><span>Simple link</span></a>
+            <a className="usa-nav__link" href="javascript:void(0)"><span>Sasi</span></a>
           </li>
         </ul>
-        <div className="usa-nav__secondary">
-          <ul className="usa-nav__secondary-links">
-            <li className="usa-nav__secondary-item">
-              <a href="https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.app.cloud.gov/preview/uswds/uswds/release-2.6.0/components/preview/layout--landing.html">Secondary
-                link</a>
-            </li>
-            <li className="usa-nav__secondary-item">
-              <a href="https://federalist-3b6ba08e-0df4-44c9-ac73-6fc193b0e19c.app.cloud.gov/preview/uswds/uswds/release-2.6.0/components/preview/layout--landing.html">Another
-                secondary link</a>
-            </li>
-          </ul>
-          <form className="usa-search usa-search--small " role="search">
-            <label className="usa-sr-only" htmlFor="extended-search-field-small">Search small</label>
-            <input className="usa-input" id="extended-search-field-small" type="search" name="search"/>
-              <button className="usa-button" type="submit"><span className="usa-sr-only">Search</span></button>
-          </form>
-        </div>
       </div>
     </nav>
   </header>
-
 
   <main id="main-content">
     <section className="usa-hero" aria-label="Introduction">
